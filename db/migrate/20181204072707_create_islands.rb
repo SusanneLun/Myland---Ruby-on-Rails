@@ -5,7 +5,8 @@ class CreateIslands < ActiveRecord::Migration[5.2]
       t.string :country
       t.string :location
       t.text :description
-      t.intiger :price
+      t.integer :price
+      t.string :month 
 
       t.timestamps
     end
