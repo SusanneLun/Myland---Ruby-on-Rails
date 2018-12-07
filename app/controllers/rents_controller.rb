@@ -25,16 +25,9 @@ class RentsController < ApplicationController
   # POST /rents.json
   def create
     @rent = Rent.new(rent_params)
-
-    respond_to do |format|
-      if @rent.save
-        format.html { redirect_to @rent, notice: 'Rent was successfully created.' }
-        format.json { render :show, status: :created, location: @rent }
-      else
-        format.html { render :new }
-        format.json { render json: @rent.errors, status: :unprocessable_entity }
-      end
-    end
+    @rent.user = current_user
+    @rent.save
+    redirect_to island_path(@rent.island)
   end
 
   # PATCH/PUT /rents/1
@@ -51,6 +44,8 @@ class RentsController < ApplicationController
     end
   end
 
+
+
   # DELETE /rents/1
   # DELETE /rents/1.json
   def destroy
@@ -61,6 +56,7 @@ class RentsController < ApplicationController
     end
   end
 
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_rent
@@ -69,6 +65,6 @@ class RentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def rent_params
-      params.require(:rent).permit(:month, :duration)
+      params.require(:rent).permit(:user_id, :island_id, :month)
     end
 end

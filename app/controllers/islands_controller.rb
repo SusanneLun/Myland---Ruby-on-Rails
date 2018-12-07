@@ -10,7 +10,11 @@ class IslandsController < ApplicationController
   # GET /islands/1
   # GET /islands/1.json
   def show
+    @month_values = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    @rent = Rent.new
+    @current_user_rents = Rent.where(:user_id => current_user.id, :island_id => @island.id)
   end
+
 
   # GET /islands/new
   def new
@@ -51,6 +55,8 @@ class IslandsController < ApplicationController
     end
   end
 
+
+
   # DELETE /islands/1
   # DELETE /islands/1.json
   def destroy
@@ -69,6 +75,6 @@ class IslandsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def island_params
-      params.require(:island).permit(:name, :country, :location, :description, :price)
+      params.require(:island).permit(:name, :country, :location, :description, :price, :month, :img_url, :thumbnail_img)
     end
 end

@@ -5,6 +5,11 @@
   <%= @island.name %>
 </p>
 
+
+<p>
+  <%= image_tag (@island.img_url) %>
+</p>
+
 <p>
   <strong>Country:</strong>
   <%= @island.country %>
@@ -21,9 +26,38 @@
 </p>
 
 <p>
-  <strong>Price:</strong>
+  <strong>Price: £</strong>
   <%= @island.price %>
 </p>
 
-<%= link_to 'Edit', edit_island_path(@island) %> |
+
+
+<p>
+  <strong>Reviews:</strong>
+  <% @island.reviews.each do |review| %>
+    <p></p>
+  <b><td><%= review.rating %></td></b>
+  <p></p>
+  <b><td><%= review.title %></td></b>
+  <p></p>
+  <td><%= review.content %></td>
+  <% end %>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<strong>Rent this island:</strong>
+<%= form_for(@rent) do |f| %>
+<%= f.text_field :island_id, :value => @island.id %>
+<%= f.collection_select :month, @month_values, :to_s, :to_s %>
+<%= f.submit %>
+<% end %>
+<p></p>
+<p></p>
+<strong>Your rent periods for this island:</strong>
+<% @current_user_rents.each do |rent| %>
+<%= rent.month %>
+<% end %>
+
+<p></p>
 <%= link_to 'Back', islands_path %>

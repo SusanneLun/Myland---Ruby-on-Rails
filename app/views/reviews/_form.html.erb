@@ -17,11 +17,29 @@
   </div>
 
   <div class="field">
+    <%= form.label :title %>
+    <%= form.text_area :title %>
+  </div>
+
+  <div class="field">
     <%= form.label :content %>
     <%= form.text_area :content %>
+  </div>
+
+  <div class="field">
+    <h5>Island</h5>
+    <%= form_for(@review) do |f| %>
+    <%= f.collection_select :island_id, Island.all, :id, :name %>
+    <%= f.submit %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_area :user_id %>
   </div>
 
   <div class="actions">
     <%= form.submit %>
   </div>
+<% end %>
 <% end %>
