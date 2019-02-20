@@ -10,6 +10,37 @@
   </head>
 
   <body>
+
+
+
+    <%= link_to (image_tag ("logo_myland.jpg")), "/" %>
+    <br>
+    <br>
+    <br>
+
+
+    <div id="locator">
+
+     <% if logged_in? %>
+       <p> You are logged in as <%= link_to current_user.user_name, current_user %> </p>
+       <p> <%= link_to "Log out", logout_path, method: "post" %> </p>
+        <% if current_user.admin == true %>
+         <p>  </p>
+       <% else %>
+         <p>  </p>
+       <% end %>
+      <% else %>
+       <p> You are not logged in. </p>
+       <p> <%= link_to "Log in", login_path %> </p>
+       <p> or </p>
+       <p> <%= link_to "Register", signup_path %> </p>
+     <% end %>
+       </div>
+
+    <% if flash[:authorized] %>
+     <p> <%= flash[:authorized] %> </p>
+   <% end %>
+
     <%= yield %>
   </body>
 </html>
