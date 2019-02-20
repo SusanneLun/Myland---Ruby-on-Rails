@@ -47,3 +47,28 @@ respond_to do |format|
   <%= link_to 'Edit', edit_island_path(@island) %> |
 
   <%= link_to 'Book', edit_island_path(@island) %>
+
+<%= link_to 'New Island', new_island_path %>
+
+<td><%= link_to 'Show', review %></td>
+<td><%= link_to 'Edit', edit_review_path(review) %></td>
+<td><%= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+<%
+
+
+<div class="field">
+  <%= form.label :user_id %>
+  <%= form.text_area :user_id %>
+</div>
+
+<div class="actions">
+  <%= form.submit %>
+</div>
+
+
+  <td><%= link_to 'Show island', island %></td>
+
+  <td><%= link_to 'Show', user %></td>
+  <td><%= link_to 'Edit', edit_user_path(user) %></td>
+  <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>

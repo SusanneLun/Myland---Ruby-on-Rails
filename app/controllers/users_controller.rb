@@ -30,7 +30,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.valid?
       @user.save
-      redirect_to users_path
+      redirect_to login_path
     else
       redirect_to new_users_path
     end

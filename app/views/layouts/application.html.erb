@@ -11,9 +11,16 @@
 
   <body>
 
-    <%= image_tag ("logo_myland.jpg") %>
 
-    <div>
+
+    <%= link_to (image_tag ("logo_myland.jpg")), "/" %>
+    <br>
+    <br>
+    <br>
+
+
+    <div id="locator">
+
      <% if logged_in? %>
        <p> You are logged in as <%= link_to current_user.user_name, current_user %> </p>
        <p> <%= link_to "Log out", logout_path, method: "post" %> </p>
@@ -28,7 +35,8 @@
        <p> or </p>
        <p> <%= link_to "Register", signup_path %> </p>
      <% end %>
-   </div>
+       </div>
+
     <% if flash[:authorized] %>
      <p> <%= flash[:authorized] %> </p>
    <% end %>

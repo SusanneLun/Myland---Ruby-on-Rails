@@ -11,35 +11,29 @@
     </div>
   <% end %>
 
+  <h7>1. Please provide a rating 1-5 where 5 is the best experience.</h7>
   <div class="field">
     <%= form.label :rating %>
     <%= form.number_field :rating %>
   </div>
-
+  <h7>2. Your title summarizes your experience.</h7>
   <div class="field">
     <%= form.label :title %>
     <%= form.text_area :title %>
   </div>
-
+  <h7>3. Please provide the details of your experience.</h7>
   <div class="field">
     <%= form.label :content %>
     <%= form.text_area :content %>
   </div>
-
+  <h7>4. Pick the island in the list and then click Create Review.</h7>
   <div class="field">
-    <h5>Island</h5>
     <%= form_for(@review) do |f| %>
     <%= f.collection_select :island_id, Island.all, :id, :name %>
+    <p></p>
     <%= f.submit %>
   </div>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_area :user_id %>
-  </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>
 <% end %>

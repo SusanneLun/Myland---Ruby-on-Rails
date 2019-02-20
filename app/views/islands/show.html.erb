@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @island.name %>
+  <strong>  </strong>
+  <h3><%= @island.name %></h3>
 </p>
 
 
@@ -47,8 +47,9 @@
 <p></p>
 <p></p>
 <strong>Rent this island:</strong>
+<p></p>
 <%= form_for(@rent) do |f| %>
-<%= f.text_field :island_id, :value => @island.id %>
+<%= f.hidden_field :island_id, :value => @island.id %>
 <%= f.collection_select :month, @month_values, :to_s, :to_s %>
 <%= f.submit %>
 <% end %>

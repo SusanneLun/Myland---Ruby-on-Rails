@@ -13,3 +13,27 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap";
+
+html{
+     background-color:white;
+}
+
+body {
+    position:relative;
+    left:50px;
+    background-color:white;
+}
+div{
+    position:relative;
+    left:100px;
+    width:100px;
+    height:100px;
+    background-color:white;
+}
+
+table{
+  max-width: 90vw;
+}
+
+#locator { position: absolute; visibility: visible; left: 900px; top: 30px; z-index: 200; }

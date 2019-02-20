@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Choose your island</h1>
+<br>
 
 <table>
   <thead>
@@ -19,8 +20,8 @@
   <tbody>
     <% @islands.each do |island| %>
       <tr>
-        <td><%= island.name %></td>
-        <td><%= image_tag (island.thumbnail_img) %></td>
+        <h3><td><%= link_to (island.name), island %></td></h3>
+        <td><%= link_to (image_tag (island.thumbnail_img)), island %></td>
         <td><%= island.country %></td>
         <td><%= island.location %></td>
         <td><%= island.description %></td>
@@ -28,8 +29,8 @@
         <% island.reviews.each do |review| %>
         <td><%= review.title %></td>
           <% end %>
-        <td><%= link_to 'Show island', island %></td>
-    
+      
+
       </tr>
 
     <% end %>
@@ -37,5 +38,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New Island', new_island_path %>
